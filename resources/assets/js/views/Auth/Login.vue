@@ -1,6 +1,6 @@
 <template>
 	<form class="field" @submit.prevent="login">
-		<h1 class="control has-icons-left has-icons-right">Welcome!</h1>
+		<h1 class="control has-icons-left has-icons-right">Admin Welcome!</h1>
 		<div class="form__group">
 			<label>Email</label>
 			<input type="text" class="form__control" v-model="form.email">
@@ -40,7 +40,7 @@
 			login(){
 				this.isProcessing = true
 				this.error = {}
-				post(`/api/login`, this.form)
+				post(`/api/td-login`, this.form)
 					.then((res) => {
 						if (res.data.authenticated) {
 							Auth.set(res.data.api_token, res.data.user_id)

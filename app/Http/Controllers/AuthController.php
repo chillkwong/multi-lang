@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 use Hash;
 
 
@@ -25,6 +26,9 @@ class AuthController extends Controller
 
 	    	$user = new User($request->all());
 	    	$user->password = bcrypt($request->password);
+	    	$user
+		       ->roles()
+		       ->attach(Role::where('name', 'buyer')->first());
 	    	$user->save();
 
 		return response()

@@ -8,6 +8,8 @@ Route::post('/logout', 'AuthController@logout');
 Route::resource('posts', 'PostController');
 Route::resource('invoices', 'InvoiceController');
 
+Route::Post('td-login', 'AdminController@login');
+
 
 // use Illuminate\Http\Request;
 
